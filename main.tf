@@ -29,7 +29,7 @@ resource "google_cloudfunctions_function" "function" {
   source_archive_object = google_storage_bucket_object.archive.name
   event_trigger         {
     event_type  = "google.storage.object.finalize"
-    resource    = var.resume_bucket
+    resource    = google_storage_bucket.bucket.name
   }  
   environment_variables = {
     key         = "123" 
